@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: management-alunos
+  datasource:
+    url: jdbc:postgresql://localhost:5433/alunos-db
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+management:
+  tracing:
+    sampling:
+      probability: 1
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+    management.alunos: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
